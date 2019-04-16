@@ -34,52 +34,17 @@
   background-color: red;
 }
 
-/*DISPLAY COMPONENT*/
-
-.display{
-  display: flex;
-  flex-wrap: wrap;
-  width: 100%;
-  max-width: 660px;
-  margin: auto;
-  margin-top:50px;
-}
-
-.display .box{
-  width: 200px;
-  height: 200px;
-  text-align: center;
-  background-color: red;
-  margin:10px;
-  padding-top: 85px;
-  box-sizing: border-box;
-}
-
-.display .box p{
-  background-color: white;
-  padding: 0 6px;
-  margin-top: 100px;
-  display: inline;
-  font-weight: bold;
-  color: black;
-  font-size: 1.2em;
-}
 
 
 /*this next part is just for us to see the component better while*/
 /*buidling it*/
 
 .headline{
-  outline: 1px lightgrey solid;
+  outline: 1px black solid;
   outline-offset:-20px;
 }
 
 .inputComp{
-  outline: 1px lightgrey solid;
+  outline: 1px black solid;
   outline-offset:-20px;
-}
-
-.display{
-  outline: 1px lightgrey solid;
-  outline-offset:30px;
 }
