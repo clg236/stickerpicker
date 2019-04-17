@@ -36,15 +36,17 @@ class App extends Component {
 
     // we make a copy (with the "slice()" method) of the 
     // words array as it currently is:
-    let currentWords = this.state.words.slice();
-    
-    // add the new word to the copy:
-    currentWords.push(newWord);
+
+    // the ".concat()" method allows us to 
+    // combine two arrays (or here one array and a string)
+    // and return a NEW array. This new array we store in
+    // store in the variable "newWords"
+    let newWords = this.state.words.concat(newWord);
     
     // overwrite the current words in our state
     // with the updated one
     this.setState({
-      words: currentWords  
+      words: newWords  
     })
 
   }
