@@ -1,54 +1,40 @@
 import React, { Component } from 'react';
 import './App.css';
-
-// in this file we build our main "App" component.
-// inside it we will render a Headline and a InputComp component.
-// to allow for that we need to inport them from other files.
-//this is done in the next two lines:
 import Headline from './Headline.js';
 import InputComp from './InputComp.js';
+import superAgent from 'superagent';
 
-
-//now we start building the App component. To start, we make a copy/an instance
-//of React's Component "blueprint" which brings a lot of functionality. 
-//On that, we then extend to make it our own.
 class App extends Component {
-  //This component has its own state (data). We initialize it 
-  //in this constructor function. The only data we want for 
-  //now is an array holding words. See it 4 lines below :)
+
   constructor(props) {
     super(props);
     this.state = {
-      words: ['paradise', 'bicycle', 'jianbing', 'timezone', 'hotdog', 'dog'],
+      gifs: []
     }
   }
 
   //Functions go here
 
-  addWord = (newWord) => {
+  findGifs = (term) => {
+    const url = `http://api.giphy.com/v1/stickers/search?q=${term}&api_key=SWq0akBClfv0noc1kvCvN8bCBGAKqAZG&limit=10`;
 
-    let newWords = this.state.words.concat(newWord);
-
-    // overwrite the current words in our state
-    // with the updated one
-    this.setState({
-      words: newWords
-    })
-
+    superAgent.get(url, (error, response) => {
+      console.log(response.body.data[0]);
+      this.setState({ gifs: response.body.data });
+    });
   }
 
   render() {
     return (
       <div className="App">
 
-        <Headline greeting={"HAPPY WEDNESDAY!"}></Headline>
+        <Headline greeting={"WECHAT STICKER FINDER!"}></Headline>
 
-        <InputComp submit={this.addWord}></InputComp>
+        <InputComp submit={this.findGifs}></InputComp>
         <div className = "display">
-          {this.state.words.map( word => <div className="box"><p>{word}</p></div> )}
+          {this.state.gifs.map( gif => <div className="box"><img src={gif.images.downsized.url} width="200" height="200" /></div> )}
         </div>
         
-
       </div>
     );
   }

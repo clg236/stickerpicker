@@ -34,25 +34,25 @@ class InputComp extends Component {
   constructor(props){
     super(props);
     this.state = {
-      currentWord: "",
+      currentTerm: "",
     }
   }
   
-  updateWord = (event) => {
+  updateTerm = (event) => {
     this.setState({
-      currentWord: event.target.value
+      currentTerm: event.target.value
     });
   }
   
-  submitWord = () => {
-    this.props.submit(this.state.currentWord);
+  submitTerm = () => {
+    this.props.submit(this.state.currentTerm);
   }
 
   render() {
     return (
       <div className="inputComp">
-        <input placeholder="Type something..." onChange={this.updateWord}></input> 
-        <button onClick={this.submitWord}>SUBMIT</button>
+        <input placeholder="Type something..." onChange={this.updateTerm}></input> 
+        <button onClick={this.submitTerm}>GIVE GIF!</button>
       </div>
     );
   }
