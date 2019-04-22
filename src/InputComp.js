@@ -43,6 +43,7 @@ class InputComp extends Component {
       currentWord: event.target.value
     });
   }
+  
   submitWord = () => {
     this.props.submit(this.state.currentWord);
   }

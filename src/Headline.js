@@ -16,7 +16,7 @@ class Headline extends Component {
     return (
       <div className="headline">
         <div className="logo"></div>
-        <h1>{this.props.text}</h1>
+        <h1>{this.props.greeting}</h1>
       </div>
     );
   }
