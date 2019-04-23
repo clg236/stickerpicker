@@ -38,17 +38,22 @@ class InputComp extends Component {
     }
   }
   
+
+  //Functions go here
+
+  //here's our update search term function. It takes in an event, and then sets the current term in our state to be equal to whatever the has been typed in the field
   updateTerm = (event) => {
     this.setState({
       currentTerm: event.target.value
     });
   }
   
-  submitTerm = (e) => {
+  //when the button is clicked, we call this function, which passes the currentTerm in our state UP to the findGifs function in the App component
+  submitTerm = (event) => {
     this.props.submit(this.state.currentTerm);
 
     // stop the page from refreshing.
-    e.preventDefault();
+    event.preventDefault();
   }
 
   render() {
