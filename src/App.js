@@ -15,7 +15,6 @@ class App extends Component {
     }
 
     //Functions go here
-
     findGifs = (term) => {
         const url = `//api.giphy.com/v1/stickers/search?q=${term}&api_key=SWq0akBClfv0noc1kvCvN8bCBGAKqAZG&limit=10`;
 
@@ -63,7 +62,7 @@ class App extends Component {
                                 );
 
                             })
-                            : <div>There is no gifs.</div>
+                            : <div>There are no gifs.</div>
                     }
                 </div>
 
