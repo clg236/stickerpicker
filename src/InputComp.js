@@ -44,15 +44,20 @@ class InputComp extends Component {
     });
   }
   
-  submitTerm = () => {
+  submitTerm = (e) => {
     this.props.submit(this.state.currentTerm);
+
+    // stop the page from refreshing.
+    e.preventDefault();
   }
 
   render() {
     return (
       <div className="inputComp">
-        <input placeholder="Type something..." onChange={this.updateTerm}></input> 
-        <button onClick={this.submitTerm}>GIVE GIF!</button>
+        <form onSubmit={this.submitTerm}>
+            <input placeholder="Type something..." onChange={this.updateTerm}></input>
+            <button onClick={this.submitTerm}>GIVE GIF!</button>
+        </form>
       </div>
     );
   }
