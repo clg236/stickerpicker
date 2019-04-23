@@ -18,23 +18,10 @@ class App extends Component {
     findGifs = (term) => {
         const url = `//api.giphy.com/v1/stickers/search?q=${term}&api_key=SWq0akBClfv0noc1kvCvN8bCBGAKqAZG&limit=10`;
 
-        this.setState({
-            loading: true
+        //use superagent
+        superAgent.get(url).then(res => {
+          console.log(res.body.data[0]);
         });
-
-        // add 3 seconds of latency so that we can see the loading text.
-        setTimeout(() => {
-
-            // main fetch
-            superAgent.get(url, (error, response) => {
-                console.log(response.body.data[0]);
-
-                this.setState({
-                    loading: false,
-                    gifs: response.body.data
-                });
-            });
-        }, 3000);
     }
 
     render() {
