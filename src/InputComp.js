@@ -49,20 +49,16 @@ class InputComp extends Component {
   }
   
   //when the button is clicked, we call this function, which passes the currentTerm in our state UP to the findGifs function in the App component
-  submitTerm = (event) => {
+  submitTerm = () => {
     this.props.submit(this.state.currentTerm);
 
-    // stop the page from refreshing.
-    event.preventDefault();
   }
 
   render() {
     return (
       <div className="inputComp">
-        <form onSubmit={this.submitTerm}>
             <input placeholder="Type something..." onChange={this.updateTerm}></input>
             <button onClick={this.submitTerm}>GIVE GIF!</button>
-        </form>
       </div>
     );
   }
